@@ -3,10 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Vm ="clr-namespace:PasswordGenMVVM.ViewModel"
         xmlns:local="clr-namespace:PasswordGenMVVM"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Window.DataContext>
+        <Vm:BaseViewModel/>
+    </Window.DataContext>
+    <Grid Background="#FF969696">
+        <TabControl Margin="0,-22,0.333,-0.333" Background="#FFACACAC">
+            <TabItem Header="Mainpage">
+                <Grid Background="#FF969696" RenderTransformOrigin="0.503,0.459" Margin="0,-3,-0.333,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="632*"/>
+                        <ColumnDefinition Width="155*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button Content="Generate" HorizontalAlignment="Left" Margin="10,0,0,5.667" Width="220" Height="61" VerticalAlignment="Bottom"/>
+                        <TextBox Height="98" Margin="51,96,114,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" FontSize="72"/>
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="235,0,0,5.667" VerticalAlignment="Bottom" Width="162" Height="61"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="0,0,-0.333,0">
+                        <Button Content="Options" Margin="10,0,10,125.667" Height="54" VerticalAlignment="Bottom"/>
+                        <Button Content="History" Margin="10,0,10,66.667" Height="54" VerticalAlignment="Bottom"/>
+                        <Button Content="Exit" Margin="10,0,10,9.667" Height="52" VerticalAlignment="Bottom"/>
+
+                    </Grid>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="HistoryPage">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="OptionPage">
+                <Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="SavePasswordPage">
+                <Grid>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
     </Grid>
 </Window>
