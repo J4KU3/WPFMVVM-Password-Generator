@@ -69,7 +69,8 @@ namespace PasswordGenMVVM.ViewModel
             set
             {
                 _passwordModel = value;
-                changePageCommand.OnCanExecuteChanged();
+               
+                savePasswordCommand.OnCanExecuteChanged();
                 OnPropertyChanged();
             }
         }
@@ -87,7 +88,7 @@ namespace PasswordGenMVVM.ViewModel
                 _screenValue = value;
                 generatePasswordCommand.OnCanExecuteChanged();
                 setlengthCommand.OnCanExecuteChanged();
-                savePasswordCommand.OnCanExecuteChanged();
+              
                 OnPropertyChanged();
             }
         }
@@ -104,10 +105,12 @@ namespace PasswordGenMVVM.ViewModel
             {
                 _passwordLength = value;
                 generatePasswordCommand.OnCanExecuteChanged();
-              //  setlengthCommand.OnCanExecuteChanged();
+              
                 OnPropertyChanged();
             }
         }
+
+      
 
         public MainViewModel()
         {

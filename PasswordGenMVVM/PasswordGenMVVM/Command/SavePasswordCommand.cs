@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PasswordGenMVVM.Model;
+using System.Windows;
 
 namespace PasswordGenMVVM.Command
 {
@@ -21,13 +22,40 @@ namespace PasswordGenMVVM.Command
 
         public override bool CanExecute(object parameter)
         {
-            return _mainviewmodel.ModelPassword.Password != null  && _mainviewmodel.ModelPassword.PasswordName!=null;
             
+            return true;
 
         }
         public override void Execute(object parameter)
         {
-       
+            try
+            {
+                if (_mainviewmodel.ModelPassword.PasswordName != null)
+                {
+                    using (var resource = new PasswordGenMVVMEntities())
+                    {
+                        var newpassword = new PasswordContainer
+                        {
+                            PasswordName = _mainviewmodel.ModelPassword.PasswordName,
+                            Password = _mainviewmodel.ModelPassword.Password,
+                        };
+                        resource.PasswordContainer.Add(newpassword);
+                        resource.SaveChanges();
+                        _mainviewmodel.loadDataCommand.Execute(0);
+                        MessageBox.Show("add password to database");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("puste Pola");
+                }
+
+            }
+            catch (Exception)
+            {
+              
+                throw;
+            }
             
         }
 

@@ -56,7 +56,7 @@
                     </Grid>   
 
                     <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
-                        <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{Binding null}" Cursor="Hand"/>
+                        <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{x:Null}" Cursor="Hand"/>
 
                     </Grid>
                 </Grid>
@@ -73,7 +73,7 @@
 
                     <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
                         
-                        <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{Binding null}" Cursor="Hand"/>
+                        <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0"  Cursor="Hand" Background="{x:Null}"/>
 
                     </Grid>
                     <StackPanel HorizontalAlignment="Left" Height="100" Margin="0,43,0,0" VerticalAlignment="Top" Width="100">
@@ -97,7 +97,7 @@
                     </Grid>
                     <Grid Grid.Column="1" Margin="0,0,-0.333,0">
                         <Button Content="Back" Margin="10,0,10,10" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Cursor="Hand"/>
-                        <Button Content="Save" Margin="10,0,10,69" Height="54" VerticalAlignment="Bottom" Command="{}"  Cursor="Hand"/>
+                        <Button Content="Save" Margin="10,0,10,69" Height="54" VerticalAlignment="Bottom" Command="{Binding savePasswordCommand}"  Cursor="Hand" />
                        
 
                     </Grid>
