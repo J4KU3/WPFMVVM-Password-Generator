@@ -1,10 +1,13 @@
 ﻿using PasswordGenMVVM.Command;
+using PasswordGenMVVM.Command.Options;
 using PasswordGenMVVM.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace PasswordGenMVVM.ViewModel
 {
@@ -12,7 +15,22 @@ namespace PasswordGenMVVM.ViewModel
     {
        public GeneratePasswordCommand generatePasswordCommand { get; }
        public ChangePageCommand changePageCommand { get; }
-        public ExitCommand exitCommand { get; }
+       public ExitCommand exitCommand { get; }
+       public SetlengthCommand setlengthCommand { get; }
+
+        private ObservableCollection<PasswordModel> _listofPassword = new ObservableCollection<PasswordModel>();
+
+        public ObservableCollection<PasswordModel> ListOfPassword
+        {
+            get
+            {
+                return _listofPassword;
+            }
+            set
+            {
+                _listofPassword = value;
+            }
+        }
 
 
         private int _pageNumber;
@@ -64,18 +82,19 @@ namespace PasswordGenMVVM.ViewModel
             }
         }
 
-        private int _repeat;
+        private int _passwordLength;
 
-        public int Repeat
+        public int PasswordLength
         {
             get
             {
-                return _repeat;
+                return _passwordLength;
             }
             set
             {
-                _repeat = value;
+                _passwordLength = value;
                 generatePasswordCommand.OnCanExecuteChanged();
+              //  setlengthCommand.OnCanExecuteChanged();
                 OnPropertyChanged();
             }
         }
@@ -83,9 +102,10 @@ namespace PasswordGenMVVM.ViewModel
         public MainViewModel()
         {
             generatePasswordCommand = new GeneratePasswordCommand(this);
-            Repeat = 10;
             changePageCommand = new ChangePageCommand(this);
             exitCommand = new ExitCommand(this);
+            setlengthCommand = new SetlengthCommand(this);
+            setlengthCommand.Execute("10");
         }
     }
 }

@@ -28,7 +28,7 @@ namespace PasswordGenMVVM.Command
             Random random = new Random();
             char rnd ;
             int r = 0;
-           while(r<_mainviewmodel.Repeat)
+           while(r<_mainviewmodel.PasswordLength)
             {
                 rnd = Convert.ToChar(random.Next(33, 127));
                 _mainviewmodel.ScreenValue += rnd;
