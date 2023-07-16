@@ -8,10 +8,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
-        <Vm:BaseViewModel/>
+        <Vm:MainViewModel/>
     </Window.DataContext>
     <Grid Background="#FF969696">
-        <TabControl Margin="0,-22,0.333,-0.333" Background="#FFACACAC">
+        <TabControl Margin="0,-22,0.333,-0.333" Background="#FFACACAC" SelectedIndex="{Binding PageNumber}">
             <TabItem Header="Mainpage">
                 <Grid Background="#FF969696" RenderTransformOrigin="0.503,0.459" Margin="0,-3,-0.333,0">
                     <Grid.ColumnDefinitions>
@@ -19,14 +19,17 @@
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Button Content="Generate" HorizontalAlignment="Left" Margin="10,0,0,5.667" Width="220" Height="61" VerticalAlignment="Bottom"/>
-                        <TextBox Height="98" Margin="51,96,114,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" FontSize="72"/>
-                        <Button Content="Save" HorizontalAlignment="Left" Margin="235,0,0,5.667" VerticalAlignment="Bottom" Width="162" Height="61"/>
+                        <Button Content="Generate" HorizontalAlignment="Left" Margin="10,0,0,5.667" Width="220" Height="61" VerticalAlignment="Bottom" Command="{Binding generatePasswordCommand}" Cursor="Hand"/>
+                        <TextBox Height="98" Margin="12,60,136,0" TextWrapping="Wrap" Text="{Binding ScreenValue}" VerticalAlignment="Top" FontSize="72" RenderTransformOrigin="0.5,0.5"/>
+
+
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="235,0,0,5.667" VerticalAlignment="Bottom" Width="162" Height="61" Cursor="Hand"/>
+
                     </Grid>
                     <Grid Grid.Column="1" Margin="0,0,-0.333,0">
-                        <Button Content="Options" Margin="10,0,10,125.667" Height="54" VerticalAlignment="Bottom"/>
-                        <Button Content="History" Margin="10,0,10,66.667" Height="54" VerticalAlignment="Bottom"/>
-                        <Button Content="Exit" Margin="10,0,10,9.667" Height="52" VerticalAlignment="Bottom"/>
+                        <Button Content="Options" Margin="10,0,10,125.667" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="2" Cursor="Hand"/>
+                        <Button Content="History" Margin="10,0,10,66.667" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="1" Cursor="Hand"/>
+                        <Button Content="Exit" Margin="10,0,10,9.667" Height="52" VerticalAlignment="Bottom" Cursor="Hand" Command="{Binding exitCommand}"/>
 
                     </Grid>
 
@@ -34,11 +37,36 @@
                 </Grid>
             </TabItem>
             <TabItem Header="HistoryPage">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Margin="0,0,-0.333,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="632*"/>
+                        <ColumnDefinition Width="155*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="HistoryPage" Margin="0,0,540,376"/>
+
+
+                    <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
+                        <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{Binding null}" Cursor="Hand"/>
+
+                    </Grid>
+                </Grid>
             </TabItem>
             <TabItem Header="OptionPage">
-                <Grid>
+                <Grid Margin="0,0,-0.333,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="632*"/>
+                        <ColumnDefinition Width="155*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="optionPage" Margin="0,0,540,376"/>
 
+
+                    <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
+                        
+                        <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{Binding null}" Cursor="Hand"/>
+
+                        
+
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="SavePasswordPage">
@@ -46,6 +74,7 @@
 
                 </Grid>
             </TabItem>
+
         </TabControl>
 
 
