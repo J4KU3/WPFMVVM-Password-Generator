@@ -1,5 +1,6 @@
 ﻿using PasswordGenMVVM.Command;
 using PasswordGenMVVM.Command.Options;
+using PasswordGenMVVM.Command.History;
 using PasswordGenMVVM.Model;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace PasswordGenMVVM.ViewModel
        public ChangePageCommand changePageCommand { get; }
        public ExitCommand exitCommand { get; }
        public SetlengthCommand setlengthCommand { get; }
+       public LoadDataCommand loadDataCommand { get; }
+
 
         private ObservableCollection<PasswordModel> _listofPassword = new ObservableCollection<PasswordModel>();
 
@@ -29,6 +32,8 @@ namespace PasswordGenMVVM.ViewModel
             set
             {
                 _listofPassword = value;
+                loadDataCommand.OnCanExecuteChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -106,6 +111,8 @@ namespace PasswordGenMVVM.ViewModel
             exitCommand = new ExitCommand(this);
             setlengthCommand = new SetlengthCommand(this);
             setlengthCommand.Execute("10");
+            loadDataCommand = new LoadDataCommand(this);
+            loadDataCommand.Execute(0);
         }
     }
 }

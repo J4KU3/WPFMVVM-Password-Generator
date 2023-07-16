@@ -43,7 +43,17 @@
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="HistoryPage" Margin="0,0,540,376"/>
-
+                    <Grid Grid.Column="0">
+                        <DataGrid ItemsSource="{Binding ListOfPassword}" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="PasswordID" Binding="{Binding PasswordID}"/>
+                                <DataGridTextColumn Header="PasswordName" Binding="{Binding PasswordName}"/>
+                                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        
+                        
+                    </Grid>   
 
                     <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
                         <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{Binding null}" Cursor="Hand"/>
