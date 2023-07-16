@@ -24,16 +24,26 @@ namespace PasswordGenMVVM.Command
 
         public override void Execute(object parameter)
         {
-            _mainviewmodel.ScreenValue = null;
-            Random random = new Random();
-            char rnd ;
-            int r = 0;
-           while(r<_mainviewmodel.PasswordLength)
+            try
             {
-                rnd = Convert.ToChar(random.Next(33, 127));
-                _mainviewmodel.ScreenValue += rnd;
-                r++;
+                _mainviewmodel.ScreenValue = null;
+                Random random = new Random();
+                char rnd;
+                int r = 0;
+                while (r < _mainviewmodel.PasswordLength)
+                {
+                    rnd = Convert.ToChar(random.Next(33, 127));
+                    _mainviewmodel.ScreenValue += rnd;
+                    r++;
+                }
+                _mainviewmodel.ModelPassword.Password = _mainviewmodel.ScreenValue;
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
 
 
 

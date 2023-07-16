@@ -1,10 +1,12 @@
 ﻿using PasswordGenMVVM.Command.BaseCommand;
 using PasswordGenMVVM.ViewModel;
+using PasswordGenMVVM.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PasswordGenMVVM.Model;
 
 namespace PasswordGenMVVM.Command
 {
@@ -19,15 +21,14 @@ namespace PasswordGenMVVM.Command
 
         public override bool CanExecute(object parameter)
         {
-            if (_mainviewmodel.ScreenValue!=null)
-            {
-                return true;
-            }
-            return false;
+            return _mainviewmodel.ModelPassword.Password != null  && _mainviewmodel.ModelPassword.PasswordName!=null;
+            
+
         }
         public override void Execute(object parameter)
         {
-           
+       
+            
         }
 
     }

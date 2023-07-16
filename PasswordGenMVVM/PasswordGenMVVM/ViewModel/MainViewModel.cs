@@ -19,6 +19,8 @@ namespace PasswordGenMVVM.ViewModel
        public ExitCommand exitCommand { get; }
        public SetlengthCommand setlengthCommand { get; }
        public LoadDataCommand loadDataCommand { get; }
+       public SavePasswordCommand savePasswordCommand { get; }    
+
 
 
         private ObservableCollection<PasswordModel> _listofPassword = new ObservableCollection<PasswordModel>();
@@ -50,6 +52,7 @@ namespace PasswordGenMVVM.ViewModel
             {
                 _pageNumber = value;
                 changePageCommand.OnCanExecuteChanged();
+                setlengthCommand.OnCanExecuteChanged();
                 OnPropertyChanged();
             }
         }
@@ -66,7 +69,7 @@ namespace PasswordGenMVVM.ViewModel
             set
             {
                 _passwordModel = value;
-              
+                changePageCommand.OnCanExecuteChanged();
                 OnPropertyChanged();
             }
         }
@@ -83,6 +86,8 @@ namespace PasswordGenMVVM.ViewModel
             {
                 _screenValue = value;
                 generatePasswordCommand.OnCanExecuteChanged();
+                setlengthCommand.OnCanExecuteChanged();
+                savePasswordCommand.OnCanExecuteChanged();
                 OnPropertyChanged();
             }
         }
@@ -106,6 +111,7 @@ namespace PasswordGenMVVM.ViewModel
 
         public MainViewModel()
         {
+            _passwordModel = new PasswordModel(new Data.PasswordContainer());
             generatePasswordCommand = new GeneratePasswordCommand(this);
             changePageCommand = new ChangePageCommand(this);
             exitCommand = new ExitCommand(this);
@@ -113,6 +119,8 @@ namespace PasswordGenMVVM.ViewModel
             setlengthCommand.Execute("10");
             loadDataCommand = new LoadDataCommand(this);
             loadDataCommand.Execute(0);
+            savePasswordCommand = new SavePasswordCommand(this);
+
         }
     }
 }

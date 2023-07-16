@@ -23,7 +23,7 @@
                         <TextBox Height="98" Margin="12,60,136,0" TextWrapping="Wrap" Text="{Binding ScreenValue}" VerticalAlignment="Top" FontSize="72" RenderTransformOrigin="0.5,0.5"/>
 
 
-                        <Button Content="Save" HorizontalAlignment="Left" Margin="235,0,0,5.667" VerticalAlignment="Bottom" Width="162" Height="61" Cursor="Hand"/>
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="235,0,0,5.667" VerticalAlignment="Bottom" Width="162" Height="61" Cursor="Hand" Command="{Binding changePageCommand}" CommandParameter="3" />
 
                     </Grid>
                     <Grid Grid.Column="1" Margin="0,0,-0.333,0">
@@ -85,7 +85,22 @@
             </TabItem>
             <TabItem Header="SavePasswordPage">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="632*"/>
+                        <ColumnDefinition Width="155*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label Content="Name" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="55" Margin="30,106,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.PasswordName}" VerticalAlignment="Top" Width="120" />
+                        <Label Content="Password" HorizontalAlignment="Left" Margin="30,161,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="49" Margin="30,192,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.Password}" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="0,0,-0.333,0">
+                        <Button Content="Back" Margin="10,0,10,10" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Cursor="Hand"/>
+                        <Button Content="Save" Margin="10,0,10,69" Height="54" VerticalAlignment="Bottom" Command="{}"  Cursor="Hand"/>
+                       
 
+                    </Grid>
                 </Grid>
             </TabItem>
 

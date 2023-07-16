@@ -24,7 +24,10 @@ namespace PasswordGenMVVM.Command
 
         public override void Execute(object parameter)
         {
+          
             _mainviewmodel.PageNumber = int.Parse(parameter as string);
+
+
         }
     }
 }
