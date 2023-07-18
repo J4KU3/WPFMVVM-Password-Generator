@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PasswordGenMVVM.Command
 {
@@ -19,14 +20,31 @@ namespace PasswordGenMVVM.Command
 
         public override bool CanExecute(object parameter)
         {
+           
             return true;
         }
 
         public override void Execute(object parameter)
         {
-          
-            _mainviewmodel.PageNumber = int.Parse(parameter as string);
+            if (parameter.ToString() == "3")
+            {
+                if (_mainviewmodel.ScreenValue != null)
+                {
+                    _mainviewmodel.PageNumber = int.Parse(parameter as string);
+                }
+                else
+                {
+                    MessageBox.Show("pole jest puste");
+                }
+            }
+            else
+            {
+                _mainviewmodel.PageNumber = int.Parse(parameter as string);
+            }
 
+
+           
+            
 
         }
     }

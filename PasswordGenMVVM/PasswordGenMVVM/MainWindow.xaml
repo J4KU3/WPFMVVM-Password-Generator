@@ -36,7 +36,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="HistoryPage">
+            <TabItem Header="passworListPage">
                 <Grid Margin="0,0,-0.333,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="632*"/>
@@ -44,7 +44,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Content="HistoryPage" Margin="0,0,540,376"/>
                     <Grid Grid.Column="0">
-                        <DataGrid ItemsSource="{Binding ListOfPassword}" AutoGenerateColumns="False">
+                        <DataGrid ItemsSource="{Binding ListOfPassword}" SelectedItem="{Binding SelectedPassword}" AutoGenerateColumns="False" Margin="0,0,379,0">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="PasswordID" Binding="{Binding PasswordID}"/>
                                 <DataGridTextColumn Header="PasswordName" Binding="{Binding PasswordName}"/>
@@ -56,7 +56,9 @@
                     </Grid>   
 
                     <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
-                        <Button Content="Back" Margin="10,0,10,10" Height="394" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{x:Null}" Cursor="Hand"/>
+                        <Button Content="Back" Margin="10,0,10,10" Height="52" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Background="{x:Null}" Cursor="Hand"/>
+                        <Button Content="Delete" Margin="10,0,11,67" Height="52" VerticalAlignment="Bottom" Command="{Binding deletePasswordCommand}" Background="{x:Null}" Cursor="Hand"/>
+                        <Button Content="Edit" Margin="10,0,12,124" Height="52" VerticalAlignment="Bottom" Command="" Background="{x:Null}" Cursor="Hand"/>
 
                     </Grid>
                 </Grid>
@@ -90,10 +92,10 @@
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Label Content="Name" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="55" Margin="30,106,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.PasswordName}" VerticalAlignment="Top" Width="120" />
-                        <Label Content="Password" HorizontalAlignment="Left" Margin="30,161,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="49" Margin="30,192,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.Password}" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Name" HorizontalAlignment="Left" Margin="30,46,0,0" VerticalAlignment="Top" FontSize="24"/>
+                        <TextBox HorizontalAlignment="Left" Height="73" Margin="30,93,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.PasswordName}" VerticalAlignment="Top" Width="290" />
+                        <Label Content="Password" HorizontalAlignment="Left" Margin="30,166,0,0" VerticalAlignment="Top" FontSize="24"/>
+                        <TextBox HorizontalAlignment="Left" Height="73" Margin="30,213,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.Password}" VerticalAlignment="Top" Width="290"/>
                     </Grid>
                     <Grid Grid.Column="1" Margin="0,0,-0.333,0">
                         <Button Content="Back" Margin="10,0,10,10" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Cursor="Hand"/>

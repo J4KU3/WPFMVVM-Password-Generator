@@ -20,6 +20,9 @@ namespace PasswordGenMVVM.ViewModel
        public SetlengthCommand setlengthCommand { get; }
        public LoadDataCommand loadDataCommand { get; }
        public SavePasswordCommand savePasswordCommand { get; }    
+       public DeletePasswordCommand deletePasswordCommand { get; }
+       
+
 
 
 
@@ -110,6 +113,21 @@ namespace PasswordGenMVVM.ViewModel
             }
         }
 
+        private PasswordModel _selectedPassword;
+
+        public PasswordModel SelectedPassword
+        {
+            get
+            {
+                return _selectedPassword;
+            }
+            set
+            {
+                _selectedPassword = value;
+                deletePasswordCommand.OnCanExecuteChanged();
+                OnPropertyChanged();
+            }
+        }
       
 
         public MainViewModel()
@@ -123,6 +141,7 @@ namespace PasswordGenMVVM.ViewModel
             loadDataCommand = new LoadDataCommand(this);
             loadDataCommand.Execute(0);
             savePasswordCommand = new SavePasswordCommand(this);
+            deletePasswordCommand = new DeletePasswordCommand(this);
 
         }
     }
