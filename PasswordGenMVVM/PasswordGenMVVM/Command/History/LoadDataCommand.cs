@@ -31,10 +31,10 @@ namespace PasswordGenMVVM.Command.History
             {
 
 
-                List<PasswordContainer> employeesList = context.PasswordContainer.ToList();
+                List<PasswordContainer> passwordList = context.PasswordContainer.ToList();
 
-                // Dokonaj jawnej konwersji na listę obiektów EmployeesModel
-                List<PasswordModel> convertedList = employeesList.Select(e => new PasswordModel(e)).ToList();
+              
+                List<PasswordModel> convertedList = passwordList.Select(e => new PasswordModel(e)).ToList();
 
                 _mainviewmodel.ListOfPassword = new ObservableCollection<PasswordModel>(convertedList);
 

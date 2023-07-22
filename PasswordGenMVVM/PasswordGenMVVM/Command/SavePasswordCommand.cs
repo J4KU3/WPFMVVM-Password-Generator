@@ -47,7 +47,7 @@ namespace PasswordGenMVVM.Command
                 }
                 else
                 {
-                    MessageBox.Show("puste Pola");
+                    MessageBox.Show(" TexBox is null");
                 }
 
             }

@@ -22,6 +22,8 @@ namespace PasswordGenMVVM.ViewModel
        public SavePasswordCommand savePasswordCommand { get; }    
        public DeletePasswordCommand deletePasswordCommand { get; }
        public EditPasswordCommand editPasswordCommand { get; }
+       public SearchPasswordCommand searchPasswordCommand { get; }
+
        
 
 
@@ -39,6 +41,7 @@ namespace PasswordGenMVVM.ViewModel
             {
                 _listofPassword = value;
                 loadDataCommand.OnCanExecuteChanged();
+            //    searchPasswordCommand.OnCanExecuteChanged(); // tutaj ten wyjątek występuje
                 OnPropertyChanged();
             }
         }
@@ -130,11 +133,28 @@ namespace PasswordGenMVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+
+        private PasswordModel _searchPassword;
+
+        public PasswordModel SearchPassword
+        {
+            get
+            {
+                return _searchPassword;
+            }
+            set
+            {
+                _searchPassword = value;
+                searchPasswordCommand.OnCanExecuteChanged();
+                OnPropertyChanged();
+            }
+        }
       
 
         public MainViewModel()
         {
             _passwordModel = new PasswordModel(new Data.PasswordContainer());
+            _searchPassword = new PasswordModel(new Data.PasswordContainer());
             generatePasswordCommand = new GeneratePasswordCommand(this);
             changePageCommand = new ChangePageCommand(this);
             exitCommand = new ExitCommand(this);
@@ -142,9 +162,11 @@ namespace PasswordGenMVVM.ViewModel
             setlengthCommand.Execute("10");
             loadDataCommand = new LoadDataCommand(this);
             loadDataCommand.Execute(0);
+            searchPasswordCommand = new SearchPasswordCommand(this);
             savePasswordCommand = new SavePasswordCommand(this);
             deletePasswordCommand = new DeletePasswordCommand(this);
             editPasswordCommand = new EditPasswordCommand(this);
+            
 
         }
     }

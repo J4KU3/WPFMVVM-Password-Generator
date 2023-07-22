@@ -52,8 +52,8 @@
                             </DataGrid.Columns>
                         </DataGrid>
 
-                        <TextBox TextWrapping="Wrap" Text="TextBox" Margin="0,11,100,0" HorizontalAlignment="Right" Width="255" Height="52" VerticalAlignment="Top" FontSize="36"/>
-                        <Button Content="Search" Margin="0,11,10,0" VerticalAlignment="Top" Height="52" HorizontalAlignment="Right" Width="90"/>
+                        <TextBox TextWrapping="Wrap" Text="{Binding SearchPassword.PasswordName}" Margin="0,11,100,0" HorizontalAlignment="Right" Width="255" Height="52" VerticalAlignment="Top" FontSize="36"/>
+                        <Button Content="Search" Margin="0,11,10,0" VerticalAlignment="Top" Height="52" HorizontalAlignment="Right" Width="90" Command="{Binding searchPasswordCommand}"/>
                     </Grid>
 
                     <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
