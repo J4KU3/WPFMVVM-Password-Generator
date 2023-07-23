@@ -11,7 +11,7 @@
         <Vm:MainViewModel/>
     </Window.DataContext>
     <Grid Background="#FF969696">
-        <TabControl Margin="0,-22,0.333,-0.333" Background="#FFACACAC" SelectedIndex="{Binding PageNumber}">
+        <TabControl Margin="0,-40,0.333,-0.333" Background="#FFACACAC" SelectedIndex="{Binding PageNumber}">
             <TabItem Header="Mainpage">
                 <Grid Background="#FF969696" RenderTransformOrigin="0.503,0.459" Margin="0,-3,-0.333,0">
                     <Grid.ColumnDefinitions>
@@ -19,17 +19,18 @@
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Button Content="Generate" HorizontalAlignment="Left" Margin="10,0,0,5.667" Width="220" Height="61" VerticalAlignment="Bottom" Command="{Binding generatePasswordCommand}" Cursor="Hand"/>
-                        <TextBox Height="98" Margin="12,60,136,0" TextWrapping="Wrap" Text="{Binding ScreenValue}" VerticalAlignment="Top" FontSize="72" RenderTransformOrigin="0.5,0.5"/>
+                        <Button Content="Generate" HorizontalAlignment="Left" Margin="10,0,0,5.667" Width="220" Height="61" VerticalAlignment="Bottom" Command="{Binding generatePasswordCommand}" Cursor="Hand" Background="{x:Null}"/>
+                        <TextBox Height="98" Margin="12,92,136,0" TextWrapping="Wrap" Text="{Binding ScreenValue}" VerticalAlignment="Top" FontSize="72" RenderTransformOrigin="0.5,0.5" />
 
 
-                        <Button Content="Save" HorizontalAlignment="Left" Margin="235,0,0,5.667" VerticalAlignment="Bottom" Width="162" Height="61" Cursor="Hand" Command="{Binding changePageCommand}" CommandParameter="3" />
+                        <Button Content="Save" HorizontalAlignment="Left" Margin="235,0,0,5.667" VerticalAlignment="Bottom" Width="162" Height="61" Cursor="Hand" Command="{Binding changePageCommand}" CommandParameter="3" Background="{x:Null}" />
+                        <Label Content="Generate your password" HorizontalAlignment="Left" Margin="12,26,0,0" VerticalAlignment="Top" Height="61" Width="484" FontSize="36" FontWeight="Bold"/>
 
                     </Grid>
                     <Grid Grid.Column="1" Margin="0,0,-0.333,0">
-                        <Button Content="Options" Margin="10,0,10,125.667" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="2" Cursor="Hand"/>
-                        <Button Content="History" Margin="10,0,10,66.667" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="1" Cursor="Hand"/>
-                        <Button Content="Exit" Margin="10,0,10,9.667" Height="52" VerticalAlignment="Bottom" Cursor="Hand" Command="{Binding exitCommand}"/>
+                        <Button Content="Options" Margin="10,0,10,125.667" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="2" Cursor="Hand" Background="{x:Null}"/>
+                        <Button Content="History" Margin="10,0,10,66.667" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="1" Cursor="Hand" Background="{x:Null}"/>
+                        <Button Content="Exit" Margin="10,0,10,9.667" Height="52" VerticalAlignment="Bottom" Cursor="Hand" Command="{Binding exitCommand}" Background="{x:Null}"/>
 
                     </Grid>
 
@@ -42,9 +43,9 @@
                         <ColumnDefinition Width="632*"/>
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="HistoryPage" Margin="0,0,540,376"/>
+
                     <Grid Grid.Column="0">
-                        <DataGrid ItemsSource="{Binding ListOfPassword}" SelectedItem="{Binding SelectedPassword}" AutoGenerateColumns="False" Margin="0,0,379,0">
+                        <DataGrid ItemsSource="{Binding ListOfPassword}" SelectedItem="{Binding SelectedPassword}" AutoGenerateColumns="False" Margin="0,17,0,0" HorizontalAlignment="Left" Width="253">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="PasswordID" Binding="{Binding PasswordID}"/>
                                 <DataGridTextColumn Header="PasswordName" Binding="{Binding PasswordName}"/>
@@ -52,8 +53,8 @@
                             </DataGrid.Columns>
                         </DataGrid>
 
-                        <TextBox TextWrapping="Wrap" Text="{Binding SearchPassword.PasswordName}" Margin="0,11,100,0" HorizontalAlignment="Right" Width="255" Height="52" VerticalAlignment="Top" FontSize="36"/>
-                        <Button Content="Search" Margin="0,11,10,0" VerticalAlignment="Top" Height="52" HorizontalAlignment="Right" Width="90" Command="{Binding searchPasswordCommand}"/>
+                        <TextBox TextWrapping="Wrap" Text="{Binding SearchPassword.PasswordName}" Margin="277,27,100,0" Height="52" VerticalAlignment="Top" FontSize="36"/>
+                        <Button Content="Search" Margin="0,27,10,0" VerticalAlignment="Top" Height="52" HorizontalAlignment="Right" Width="90" Command="{Binding searchPasswordCommand}"/>
                     </Grid>
 
                     <Grid Grid.Column="1"  Margin="10,0,-0.333,0">
@@ -71,7 +72,7 @@
                         <ColumnDefinition Width="632*"/>
                         <ColumnDefinition Width="155*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Content="optionPage" Margin="0,0,540,376"/>
+                    <Label Grid.Column="0" Content="options" Margin="0,0,540,376"/>
 
 
 

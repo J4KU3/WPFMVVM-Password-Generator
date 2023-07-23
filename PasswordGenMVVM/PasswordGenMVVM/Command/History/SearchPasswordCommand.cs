@@ -24,11 +24,7 @@ namespace PasswordGenMVVM.Command.History
 
         public override bool CanExecute(object parameter)
         {
-            if (_mainviewModel.SearchPassword!=null)
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
 
         public override void Execute(object parameter)
@@ -53,9 +49,9 @@ namespace PasswordGenMVVM.Command.History
                     }
 
                 }
-                if (_mainviewModel.SearchPassword.PasswordName.ToString() == "")
+                if (_mainviewModel.SearchPassword.PasswordName.ToString() == "" || _mainviewModel.SearchPassword.PasswordName == null)
                 {
-                  //  _mainviewModel.SearchPassword = null;
+                  
                     _mainviewModel.loadDataCommand.Execute(0);
                 }
                

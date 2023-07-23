@@ -41,7 +41,7 @@ namespace PasswordGenMVVM.ViewModel
             {
                 _listofPassword = value;
                 loadDataCommand.OnCanExecuteChanged();
-            //    searchPasswordCommand.OnCanExecuteChanged(); // tutaj ten wyjątek występuje
+            
                 OnPropertyChanged();
             }
         }
