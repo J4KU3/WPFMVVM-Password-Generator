@@ -96,13 +96,13 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
                         <Label Content="Name" HorizontalAlignment="Left" Margin="30,46,0,0" VerticalAlignment="Top" FontSize="24"/>
-                        <TextBox HorizontalAlignment="Left" Height="73" Margin="30,93,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.PasswordName}" VerticalAlignment="Top" Width="290" />
+                        <TextBox HorizontalAlignment="Left" Height="73" Margin="30,93,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.PasswordName}" VerticalAlignment="Top" Width="290" FontSize="36" />
                         <Label Content="Password" HorizontalAlignment="Left" Margin="30,166,0,0" VerticalAlignment="Top" FontSize="24"/>
-                        <TextBox HorizontalAlignment="Left" Height="73" Margin="30,213,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.Password}" VerticalAlignment="Top" Width="290"/>
+                        <TextBox HorizontalAlignment="Left" Height="73" Margin="30,213,0,0" TextWrapping="Wrap" Text="{Binding ModelPassword.Password}" VerticalAlignment="Top" Width="290" FontSize="36"/>
                     </Grid>
                     <Grid Grid.Column="1" Margin="0,0,-0.333,0">
-                        <Button Content="Back" Margin="10,0,10,10" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Cursor="Hand"/>
-                        <Button Content="Save" Margin="10,0,10,69" Height="54" VerticalAlignment="Bottom" Command="{Binding savePasswordCommand}"  Cursor="Hand" />
+                        <Button Content="Back" Margin="10,0,10,10" Height="54" VerticalAlignment="Bottom" Command="{Binding changePageCommand}" CommandParameter="0" Cursor="Hand" Background="{x:Null}" />
+                        <Button Content="Save" Margin="10,0,10,69" Height="54" VerticalAlignment="Bottom" Command="{Binding savePasswordCommand}"  Cursor="Hand" Background="{x:Null}"/>
 
 
                     </Grid>

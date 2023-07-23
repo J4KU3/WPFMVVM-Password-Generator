@@ -34,7 +34,7 @@ namespace PasswordGenMVVM.Command
                 }
                 else
                 {
-                    MessageBox.Show("pole jest puste");
+                    MessageBox.Show("first you must generate a password :D");
                 }
             }
             else
