@@ -32,7 +32,7 @@ namespace PasswordGenMVVM.Command.History
             try
             {
 
-                if (_mainviewModel.SearchPassword.PasswordName!=null)
+                if (_mainviewModel.SearchPassword.PasswordName!=null && _mainviewModel.SearchPassword != null)
                 {
                    
 
@@ -49,12 +49,12 @@ namespace PasswordGenMVVM.Command.History
                     }
 
                 }
-                if (_mainviewModel.SearchPassword.PasswordName.ToString() == "" || _mainviewModel.SearchPassword.PasswordName == null)
+                if (string.IsNullOrEmpty(_mainviewModel.SearchPassword?.PasswordName?.ToString()))
                 {
                   
                     _mainviewModel.loadDataCommand.Execute(0);
                 }
-               
+              
 
                   
 
@@ -68,7 +68,7 @@ namespace PasswordGenMVVM.Command.History
 
 
             }
-            catch (ArgumentNullException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 
